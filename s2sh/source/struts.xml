@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<!-- 开启动态方法 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	
+	<package name="struts" extends="struts-default" namespace="/">
+		
+		<!-- 配置全局错误页面 -->
+		<global-results>
+			<result name="error">error.jsp</result>
+		</global-results>
+		
+	
+		<!-- 员工 -->
+		<action name="employeeAction" class="employeeAction">
+			<result name="success">employee.jsp</result>
+			<result name="findByIdSuccess">employeeDetail.jsp</result><!-- 员工详情 -->
+			<result name="findByIdEditSuccess">employeeEdit.jsp</result><!-- 员工编辑 -->
+			<result name="updateSuccess" type="redirectAction">employeeAction!findAll</result>
+		</action>
+	
+		<!-- 部门 -->
+	    <action name="departmentAction" class="departmentAction">
+	    	<result>addDepartment.jsp</result>
+	    </action>
+	</package>
+
+</struts>	
+	

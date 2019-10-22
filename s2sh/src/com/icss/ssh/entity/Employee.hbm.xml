@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+  
+<hibernate-mapping>
+	
+
+	<class name="com.icss.ssh.entity.Employee" table="employee" >
+		
+	
+		<id name="id" column="id" type="integer">
+			<generator class="native"></generator>
+		</id>
+		
+		
+		<property name="name" column="name" type="java.lang.String"></property>
+		<property name="birthday" column="birthday" type="date"></property>
+		
+		
+		<!-- 关联关系：多对一
+				* name:关联映射的（一那方的）属性名字。
+				* column:和一那方关联的表的外键。
+				* class:name属性对应持久化类的全路径。
+		 -->
+		<many-to-one update="false"  lazy="false"  name="department" column="department_id" class="com.icss.ssh.entity.Department"  cascade="save-update">
+		</many-to-one>
+		
+		
+	</class>
+
+</hibernate-mapping>
