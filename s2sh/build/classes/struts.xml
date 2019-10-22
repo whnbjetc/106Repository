@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
@@ -18,7 +18,7 @@
 	
 		<!-- 员工 -->
 		<action name="employeeAction" class="employeeAction">
-			<result>employee.jsp</result>
+			<result name="success">employee.jsp</result>
 			<result name="findByIdSuccess">employeeDetail.jsp</result><!-- 员工详情 -->
 			<result name="findByIdEditSuccess">employeeEdit.jsp</result><!-- 员工编辑 -->
 			<result name="updateSuccess" type="redirectAction">employeeAction!findAll</result>
